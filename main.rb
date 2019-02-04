@@ -2,6 +2,8 @@ require 'json'
 require 'mongoid'
 require 'sinatra' 
 
+set :bind, '0.0.0.0' 
+
 configure do 
     Mongoid.load!("./database.yml")
 end 
