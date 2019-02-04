@@ -34,7 +34,7 @@ GEM
       thread_safe (~> 0.1)
 
 PLATFORMS
-  x86-mingw32
+  ruby
 
 DEPENDENCIES
   json
