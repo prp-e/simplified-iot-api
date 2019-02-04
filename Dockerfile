@@ -1,12 +1,15 @@
-FROM drecom/ubuntu-ruby:latest
+FROM ubuntu:18.04
 
 RUN apt update 
-RUN apt install -y mongodb-server 
+RUN apt install -y mongodb-server ruby2.5 
 
 RUN service mongodb start
+RUN apt install -y  bundler
 
 RUN mkdir -pv /usr/src/api 
 ADD . /usr/src/api
 WORKDIR /usr/src/api 
 
-CMD ["ruby", "/usr/src/api/main.rb", "-p", "8000"] 
+RUN bundle install 
+
+CMD ["ruby2.5", "/usr/src/api/main.rb", "-p", "8000"] 
