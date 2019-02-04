@@ -21,6 +21,7 @@ end
 
 get '/env/:temp/:humid' do 
     env = Environment.create(:username => "guest", :temperature => params[:temp], :humidity => params[:humid])
+    'Done!'
 end 
 
 get '/env/:username' do 
