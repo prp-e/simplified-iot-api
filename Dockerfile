@@ -1,8 +1,9 @@
-FROM ruby:2.4-onbuild 
+FROM drecom/ubuntu-ruby:latest
 
-RUN apt-get update 
-RUN apt-get install -y mongodb-server 
-RUN service mogodb start 
+RUN apt update 
+RUN apt install -y mongodb-server 
+
+RUN service mongodb start
 
 RUN mkdir -pv /usr/src/api 
 ADD . /usr/src/api
