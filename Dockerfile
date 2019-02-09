@@ -1,4 +1,7 @@
-FROM spittet/ruby-mongodb
+FROM mongo:xenial 
+FROM ruby:2.3-onbuild 
+
+RUN apt update 
 
 RUN mkdir -pv /usr/src/api
 ADD . /usr/src/api
