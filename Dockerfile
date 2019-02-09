@@ -1,11 +1,13 @@
-FROM mongo:xenial 
-FROM ruby:2.3-onbuild 
+FROM haghiri75/sinatra-mongo 
 
 RUN apt update 
 
-RUN mkdir -pv /usr/src/api
-ADD . /usr/src/api
-WORKDIR /usr/src/api
+RUN mkdir -pv /usr/src/app 
 
-CMD ["ruby", "/usr/src/api/main.rb", "-p", "4040"]
+ADD . /usr/src/app 
+WORKDIR /usr/src/app 
 
+RUN bundle install 
+
+
+CMD ["ruby", "/usr/src/app/main.rb", "-p", "4040"]
